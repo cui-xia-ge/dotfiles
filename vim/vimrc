@@ -1,0 +1,40 @@
+" 开启语法高亮
+syntax on
+
+" 显示绝对行号
+set number
+
+" --- 以下是推荐的进阶配置，让你的编辑器更顺手 ---
+" 突出显示当前行
+set cursorline
+
+" 设置缩进为 4 个空格
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" 启用鼠标支持（可以用鼠标点击定位或滚动）
+set mouse=a
+
+" 搜索时高亮匹配项
+set hlsearch
+
+" 让vim复制操作也会保存到系统剪切板
+set clipboard=unnamedplus
+
+" --- 插件管理区 ---
+call plug#begin('~/.vim/plugged')
+
+" 安装 vim-airline 本体
+Plug 'vim-airline/vim-airline'
+" 安装 vim-airline 主题包（提供多种配色）
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+" 配置airline 先安装完再加入
+let g:airline_theme='dark'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+
