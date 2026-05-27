@@ -38,3 +38,28 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
+" ==========================================
+" 自定义 Airline 代理状态指示器
+" ==========================================
+" 1. 定义一个函数，用于检测环境变量
+function! GetProxyStatus()
+    " 如果 http_proxy 或 all_proxy 环境变量不为空，则返回火箭图标
+    if $http_proxy != '' || $all_proxy != ''
+        return '🚀 PROXY '
+    endif
+    " 否则返回空字符串（什么都不显示）
+    return ''
+endfunction
+
+" 2. 定义一个初始化函数，将图标挂载到 Airline 上
+function! AirlineInit()
+    " 在 Airline 中注册名为 proxy_indicator 的新部件，并绑定上面的检测函数
+    call airline#parts#define_function('proxy_indicator', 'GetProxyStatus')
+
+    " 将我们的图标注入到 Airline 的 X 区（默认显示文件格式和类型的区域）
+    " 并且保留原来的内容（g:airline_section_x），让图标显示在最前面
+    let g:airline_section_x = airline#section#create(['proxy_indicator', g:airline_section_x])
+endfunction
+
+" 3. 告诉 Vim：在 Airline 插件加载完毕后，立刻执行这个初始化函数
+autocmd User AirlineAfterInit call AirlineInit()
