@@ -1,6 +1,31 @@
-# 忽略插件源码（因为我们可以通过 PlugInstall 重新下载）
-vim/plugged/
-# 忽略 Vim 的临时文件和备份
+# ==========================================
+# GNU Stow & Dotfiles 专用 .gitignore 模板
+# ==========================================
+
+# --- Vim 相关 ---
+# 忽略插件管理器下载的插件源码 (最重要的项！)
+**/vim/.vim/plugged/
+
+# 忽略 Vim 产生的临时交换文件、备份文件和撤销记录
 *.swp
+*.swo
+*.swm
 *~
+**/vim/.vim/undo/
+**/vim/.vim/backup/
+**/vim/.vim/view/
 .netrwhist
+
+# --- Shell / Bash 相关 ---
+# 忽略命令历史文件 (里面可能有敏感操作或密码)
+.bash_history
+.zsh_history
+
+# --- 操作系统及通用冗余 ---
+.DS_Store
+Thumbs.db
+.nfs*
+
+# --- Git 相关 ---
+# 如果你以后要在 gitconfig 里写私人的 token，可以考虑忽略本地生成的凭据
+.gitconfig.local
