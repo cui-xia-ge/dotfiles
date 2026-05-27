@@ -1,0 +1,6 @@
+# 忽略插件源码（因为我们可以通过 PlugInstall 重新下载）
+vim/plugged/
+# 忽略 Vim 的临时文件和备份
+*.swp
+*~
+.netrwhist
