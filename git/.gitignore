@@ -1,4 +1,65 @@
 # ==================================
+# Python & uv 包管理和运行环境
+# ==================================
+# Python 字节码和缓存
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+# uv 及虚拟环境 (uv 默认创建 .venv)
+.venv/
+venv/
+env/
+ENV/
+# Python 构建、打包产物
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+
+# ==================================
+# TensorFlow & AI 模型开发相关
+# ==================================
+# Jupyter Notebook 临时文件
+.ipynb_checkpoints/
+# TensorFlow 模型文件和权重
+*.pb
+*.h5
+*.keras
+*.tflite
+saved_model/
+*.ckpt
+*.ckpt.meta
+*.ckpt.index
+*.ckpt.data-*
+# 训练日志与 TensorBoard
+logs/
+tensorboard/
+tb_logs/
+core.*
+# 数据集和缓存数据
+data/
+datasets/
+*.csv
+*.tsv
+*.jsonl
+*.tfrecord
+*.npy
+*.npz
+# 硬件加速相关的缓存 (如 CUDA/CuDNN 等编译缓存)
+*.ptx
+
+# ==================================
+# C/C++ 或 Python 扩展的编译产物
+# ==================================
+*.so
+*.dll
+*.dylib
+
+# ==================================
 # C/C++ 编译产物和可执行文件
 # ==================================
 *.exe
